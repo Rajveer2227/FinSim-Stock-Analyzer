@@ -1,0 +1,98 @@
+INSERT INTO stocks (symbol, company_name, total_stock, price_per_stock, sector, market_cap) 
+VALUES
+('AAPL', 'Apple Inc.', 1000000, 150.25, 'Technology', '2.5 Trillion'),
+('GOOGL', 'Alphabet Inc.', 1200000, 2750.75, 'Technology', '1.8 Trillion'),
+('AMZN', 'Amazon.com Inc.', 1500000, 3400.20, 'E-commerce', '1.7 Trillion'),
+('TSLA', 'Tesla Inc.', 500000, 900.50, 'Automotive', '900 Billion'),
+('MSFT', 'Microsoft Corporation', 2000000, 290.35, 'Technology', '2.2 Trillion'),
+('META', 'Meta Platforms Inc.', 800000, 350.75, 'Technology', '950 Billion'),
+('NFLX', 'Netflix Inc.', 600000, 550.15, 'Entertainment', '250 Billion'),
+('DIS', 'The Walt Disney Company', 1000000, 185.20, 'Entertainment', '350 Billion'),
+('NVDA', 'NVIDIA Corporation', 900000, 215.80, 'Semiconductors', '530 Billion'),
+('BA', 'Boeing Company', 400000, 220.60, 'Aerospace', '125 Billion');
+
+
+
+const sampleStocks = [
+  {
+    symbol: "AAPL",
+    company_name: "Apple Inc.",
+    total_stock: 1000000,
+    price_per_stock: 180,
+    sector: ["Tech", "E-commerce"],
+    market_cap: "large"
+  },
+  {
+    symbol: "TSLA",
+    company_name: "Tesla Inc.",
+    total_stock: 500000,
+    price_per_stock: 220,
+    sector: ["Energy", "Tech"],
+    market_cap: "large"
+  },
+  {
+    symbol: "NFLX",
+    company_name: "Netflix Inc.",
+    total_stock: 300000,
+    price_per_stock: 400,
+    sector: ["Entertainment", "Tech"],
+    market_cap: "mid"
+  },
+  {
+    symbol: "AMD",
+    company_name: "Advanced Micro Devices",
+    total_stock: 450000,
+    price_per_stock: 115,
+    sector: ["Semiconductors", "Tech"],
+    market_cap: "mid"
+  },
+  {
+    symbol: "SHOP",
+    company_name: "Shopify Inc.",
+    total_stock: 200000,
+    price_per_stock: 70,
+    sector: ["E-commerce"],
+    market_cap: "small"
+  },
+  {
+    symbol: "PLTR",
+    company_name: "Palantir Technologies",
+    total_stock: 250000,
+    price_per_stock: 25,
+    sector: ["Tech", "Finance"],
+    market_cap: "small"
+  }
+];
+
+
+
+RELIANCE Performance & Key Metrics
+
+
+TTM PE RatioTTM PE Ratio
+Close price divided by the TTM earnings per share, excluding extraordinary items. TTM stands for trailing twelve months.
+
+PB RatioPB Ratio
+Close price divided by the book value per share at the end of the most recent financial year
+
+Dividend YieldDividend Yield
+Dividend Per Share for the most recent financial year divided by the close price
+
+27.20
+2.05
+0.39%
+Sector PESector PE
+Average PE ratio of the sector the stock belongs to
+
+Sector PBSector PB
+Average PB ratio of the sector the stock belongs to
+
+Sector Div YldSector Div Yld
+Average dividend yield of the sector the stock belongs to
+
+13.74
+1.63
+1.86%
+
+
+Run : npm install echarts

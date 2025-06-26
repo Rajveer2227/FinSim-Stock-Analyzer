@@ -1,0 +1,136 @@
+  {/* Add Stock Modal */}
+      <Modal show={showAddStock} onHide={() => setShowAddStock(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Add New Stock</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group className="mb-2">
+              <Form.Label>Symbol</Form.Label>
+              <Form.Control name="symbol" value={newStock.symbol} onChange={handleInputChange} />
+            </Form.Group>
+            <Form.Group className="mb-2">
+              <Form.Label>Company Name</Form.Label>
+              <Form.Control name="company_name" value={newStock.company_name} onChange={handleInputChange} />
+            </Form.Group>
+            <Form.Group className="mb-2">
+              <Form.Label>Total Stock</Form.Label>
+              <Form.Control name="total_stock" value={newStock.total_stock} onChange={handleInputChange} />
+            </Form.Group>
+            <Form.Group className="mb-2">
+              <Form.Label>Price Per Stock</Form.Label>
+              <Form.Control name="price_per_stock" value={newStock.price_per_stock} onChange={handleInputChange} />
+            </Form.Group>
+            {/* <Form.Group className="mb-2">
+              <Form.Label>Market Cap</Form.Label>
+              <Form.Control name="market_cap" value={newStock.market_cap} onChange={handleInputChange} />
+            </Form.Group> */}
+            <Form.Group className="mb-2">
+              <Form.Label>Market Cap</Form.Label>
+              <Form.Select name="market_cap" value={newStock.market_cap} onChange={handleInputChange}>
+                <option value="">Select Market Cap</option>
+                <option value="Large Cap">Large Cap</option>
+                <option value="Mid Cap">Mid Cap</option>
+                <option value="Small Cap">Small Cap</option>
+              </Form.Select>
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Sector</Form.Label>
+              <div className="d-flex flex-wrap">
+                {['Tech', 'Finance', 'Energy', 'Retail','E-commerce','Semiconductors', 'Entertainment'].map(sec => (
+                  <Form.Check
+                    key={sec}
+                    type="checkbox"
+                    label={sec}
+                    value={sec}
+                    checked={newStock.sector.includes(sec)}
+                    onChange={handleSectorChange}
+                    className="me-3"
+                  />
+                ))}
+              </div>
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={() => setShowAddStock(false)}>Close</Button>
+          <Button variant="primary" onClick={handleAddStock}>Add</Button>
+        </Modal.Footer>
+      </Modal>
+
+
+      {/* Edit Stock Modal */}
+          <Modal show={showEditModal} onHide={() => setShowEditModal(false)}>
+          <Modal.Header closeButton>
+            <Modal.Title>Edit Stock</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form>
+              <Form.Group className="mb-2">
+                <Form.Label>Symbol</Form.Label>
+                <Form.Control
+                  name="symbol"
+                  value={editingStock?.symbol || ''}
+                  onChange={handleEditChange}
+                />
+              </Form.Group>
+              <Form.Group className="mb-2">
+                <Form.Label>Company Name</Form.Label>
+                <Form.Control
+                  name="company_name"
+                  value={editingStock?.company_name || ''}
+                  onChange={handleEditChange}
+                />
+              </Form.Group>
+              <Form.Group className="mb-2">
+                <Form.Label>Total Stock</Form.Label>
+                <Form.Control
+                  name="total_stock"
+                  value={editingStock?.total_stock || ''}
+                  onChange={handleEditChange}
+                />
+              </Form.Group>
+              <Form.Group className="mb-2">
+                <Form.Label>Price Per Stock</Form.Label>
+                <Form.Control
+                  name="price_per_stock"
+                  value={editingStock?.price_per_stock || ''}
+                  onChange={handleEditChange}
+                />
+              </Form.Group>
+              <Form.Group className="mb-2">
+                <Form.Label>Sector (comma-separated)</Form.Label>
+                <Form.Control
+                  name="sector"
+                  value={Array.isArray(editingStock?.sector) ? editingStock.sector.join(', ') : editingStock?.sector || ''}
+                  onChange={(e) =>
+                    setEditingStock(prev => ({
+                      ...prev,
+                      sector: e.target.value.split(',').map(s => s.trim())
+                    }))
+                  }
+                />
+              </Form.Group>
+              <Form.Group className="mb-2">
+                <Form.Label>Market Cap</Form.Label>
+                <Form.Control
+                  name="market_cap"
+                  value={editingStock?.market_cap || ''}
+                  onChange={handleEditChange}
+                />
+              </Form.Group>
+            </Form>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={() => setShowEditModal(false)}>Cancel</Button>
+                <Button variant="primary" onClick={handleEditStock}>Save Changes</Button>
+              </Modal.Footer>
+            </Modal>
+
+
+
+            
+{/* Footer copyright */}
+<div className="text-center py-3 mt-4 text-white" style={{ backgroundColor: "rgba(0, 0, 0, 0.8)" }}>
+  © {new Date().getFullYear()} <a className="text-white fw-semibold" href="https://stockanalyzr.com">FinSim</a>. All rights reserved.
+</div>
